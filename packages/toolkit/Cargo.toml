@@ -1,0 +1,39 @@
+[package]
+authors = ["Dave Kozma <dkozma@adobe.com>"]
+edition = "2018"
+name = "c2pa-js-toolkit"
+version = "0.9.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+console_error_panic_hook = "0.1.6"
+console_log = {version = "0.2", features = ["color"]}
+log = "0.4.14"
+js-sys = "0.3.56"
+serde = {version = "1.0.127", features = ["derive"]}
+serde_cbor = "0.11.2"
+serde_json = "1.0.79"
+serde-wasm-bindgen = "0.4.2"
+serde_bytes = "0.11.5"
+serde_derive = "1.0.126"
+serde-transcode = "1.1.1"
+thiserror = "1.0.20"
+wasm-bindgen = {version = "0.2.79", features = ["serde-serialize"]}
+wasm-bindgen-futures = "0.4.29"
+
+[dependencies.c2pa_toolkit]
+git = "ssh://git@github.com/contentauth/c2pa-toolkit.git"
+rev = "b6212d7"
+
+[dependencies.web-sys]
+version = "0.3.56"
+features = ['console', 'Window', 'Performance']
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.29"
+
+[profile.release]
+lto = true
+opt-level = "s"

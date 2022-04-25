@@ -1,0 +1,31 @@
+{
+  "name": "@contentauth/react-hooks",
+  "version": "0.4.1",
+  "author": {
+    "name": "Dave Kozma",
+    "email": "dkozma@adobe.com"
+  },
+  "license": "MIT",
+  "description": "React Hooks for the CAI JavaScript SDK",
+  "main": "dist/c2pa-react-hooks.esm.js",
+  "module": "dist/c2pa-react-hooks.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/contentauth/c2pa-js",
+    "directory": "packages/react-hooks"
+  },
+  "scripts": {
+    "dev": "rollup -c ./rollup.config.js -w",
+    "clean": "rm -rf dist",
+    "build:lib": "rollup -c ./rollup.config.js",
+    "build": "run-s clean build:lib"
+  },
+  "peerDependencies": {
+    "c2pa": "*",
+    "react": ">= 16.8.0"
+  }
+}

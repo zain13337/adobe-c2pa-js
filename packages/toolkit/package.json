@@ -1,0 +1,26 @@
+{
+  "name": "@contentauth/toolkit",
+  "version": "0.7.0-alpha.22+a509694",
+  "author": {
+    "name": "Dave Kozma",
+    "email": "dkozma@adobe.com"
+  },
+  "license": "MIT",
+  "description": "WebAssembly binary and bindings for the c2pa-toolkit",
+  "main": "pkg/toolkit.js",
+  "types": "pkg/toolkit.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/contentauth/c2pa-js",
+    "directory": "packages/toolkit"
+  },
+  "files": [
+    "pkg/**/*"
+  ],
+  "scripts": {
+    "dev": "nodemon -x wasm-pack -e rs -w src -w ../../../c2pa-toolkit/lib -- build --dev --out-name toolkit --target web",
+    "build": "wasm-pack build --out-name toolkit --release --target web && rm -f pkg/.gitignore pkg/package.json",
+    "clean": "rm -rf ./pkg"
+  },
+  "gitHead": "a5096943d5b286dd35b1cc70ad0ebfa7688c5c5f"
+}
