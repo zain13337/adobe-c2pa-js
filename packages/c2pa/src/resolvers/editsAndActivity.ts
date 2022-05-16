@@ -91,7 +91,7 @@ async function getCategorizedActions(
       translateActionName(
         dictionary,
         // TODO: This should be resolved once we reconcile dictionary definitions
-        action.parameters.name ?? action.action,
+        action.parameters?.name ?? action.action,
         locale,
         iconVariant,
       ),
