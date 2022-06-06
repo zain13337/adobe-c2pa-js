@@ -71,3 +71,9 @@ build.tar.gz
 
 # temp directories
 temp
+
+# Rush temporary files
+common/deploy/
+common/temp/
+common/autoinstallers/*/.npmrc
+**/.rush/temp/
