@@ -1,13 +1,15 @@
+import { createC2pa } from 'c2pa';
+import wasmSrc from 'c2pa/dist/assets/wasm/toolkit_bg.wasm?url';
+import workerSrc from 'c2pa/dist/c2pa.worker.js?url';
+
 const sampleImage =
   'https://cdn.jsdelivr.net/gh/contentauth/c2pa-js/tools/testing/fixtures/images/CAICAI.jpg';
 
 (async () => {
   // Initialize the c2pa-js SDK
-  const libraryUrl = 'https://cdn.jsdelivr.net/npm/c2pa@0.9.1/+esm';
-  const createC2pa = await import(libraryUrl);
   const c2pa = await createC2pa({
-    wasmSrc: 'https://cdn.jsdelivr.net/npm/c2pa@0.9.1/dist/assets/wasm/toolkit_bg.wasm',
-    workerSrc: 'https://cdn.jsdelivr.net/npm/c2pa@0.9.1/dist/c2pa.worker.min.js',
+    wasmSrc,
+    workerSrc,
   });
 
   // Read in our sample image and get a manifest store
