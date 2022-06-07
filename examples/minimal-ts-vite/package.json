@@ -9,7 +9,6 @@
     "test": "echo \"Test setup pending\" && exit 0"
   },
   "devDependencies": {
-    "@storybook/expect": "^27.5.2-0",
     "typescript": "^4.3.2",
     "vite": "^2.5.4"
   },
