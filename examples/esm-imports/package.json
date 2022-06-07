@@ -1,0 +1,11 @@
+{
+  "name": "esm-imports",
+  "version": "0.0.0",
+  "private": "true",
+  "scripts": {
+    "dev": "serve"
+  },
+  "dependencies": {
+    "serve": "^13.0.2"
+  }
+}
