@@ -1,0 +1,19 @@
+{
+  "name": "minimal-ts-vite",
+  "version": "0.0.0",
+  "private": "true",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "test": "echo \"Test setup pending\" && exit 0"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.2",
+    "vite": "^2.5.4"
+  },
+  "dependencies": {
+    "c2pa": "*",
+    "fast-glob": "^3.2.11"
+  }
+}
