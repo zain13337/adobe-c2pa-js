@@ -5,10 +5,9 @@ import workerSrc from 'c2pa/dist/c2pa.worker.js?url';
 const sampleImage =
   'https://cdn.jsdelivr.net/gh/contentauth/c2pa-js/tools/testing/fixtures/images/CAICAI.jpg';
 
-const properties: Record<string, string> = {};
-let output: string[] = [];
-
 (async () => {
+  let output: string[] = [];
+
   const c2pa = await createC2pa({
     wasmSrc,
     workerSrc,
@@ -23,21 +22,20 @@ let output: string[] = [];
     const { data, dispose } = source.thumbnail.getUrl();
 
     // Get properties
-    properties.title = activeManifest.title;
-    properties.format = activeManifest.format;
-    properties.label = activeManifest.label;
-    properties.claimGenerator =
-      activeManifest.claimGenerator.product;
-    properties.producer =
-      activeManifest.producer?.name ?? 'Unknown';
-    properties.thumbnail = `<img src="${data.url}" class="thumbnail" />`;
-    properties.ingredients = (activeManifest.ingredients ?? [])
-      .map((i) => i.title)
-      .join(', ');
-    properties.signatureIssuer = activeManifest.signature.issuer;
-    properties.signatureDate =
-      activeManifest.signature.date?.toString() ??
-      'No date available';
+    const properties: Record<string, string> = {
+      title: activeManifest.title,
+      format: activeManifest.format,
+      label: activeManifest.label,
+      claimGenerator: activeManifest.claimGenerator.product,
+      producer: activeManifest.producer?.name ?? 'Unknown',
+      thumbnail: `<img src:"${data.url}" class:"thumbnail" />`,
+      ingredients: (activeManifest.ingredients ?? [])
+        .map((i) => i.title)
+        .join(', '),
+      signatureIssuer: activeManifest.signature.issuer,
+      signatureDate:
+        activeManifest.signature.date?.toString() ?? 'No date available',
+    };
 
     output = Object.keys(properties).map((key) => {
       return `
@@ -55,6 +53,5 @@ let output: string[] = [];
     `);
   }
 
-  document.querySelector('#results tbody')!.innerHTML =
-    output.join('');
+  document.querySelector('#results tbody')!.innerHTML = output.join('');
 })();

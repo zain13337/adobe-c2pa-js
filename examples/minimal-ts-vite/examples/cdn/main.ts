@@ -2,7 +2,7 @@ const sampleImage =
   'https://cdn.jsdelivr.net/gh/contentauth/c2pa-js/tools/testing/fixtures/images/CAICAI.jpg';
 
 (async () => {
-  // Information about where to fetch the library  
+  // Information about where to fetch the library
   const version = '0.9.1';
   const libraryUrl = `https://cdn.jsdelivr.net/npm/c2pa@${version}/+esm`;
 
