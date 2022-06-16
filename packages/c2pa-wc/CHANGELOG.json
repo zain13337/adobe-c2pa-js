@@ -2,6 +2,32 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.7.0",
+      "tag": "c2pa-wc_v0.7.0",
+      "date": "Thu, 16 Jun 2022 14:26:53 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Fix tooltip positioning"
+          },
+          {
+            "comment": "Simplified positioning for tooltip components due to Safari issues"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Use product field instead of value for Produced With"
+          },
+          {
+            "comment": "Add Produced With help tooltip"
+          },
+          {
+            "comment": "Add fixed View More button"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.6.0",
       "tag": "c2pa-wc_v0.6.0",
       "date": "Thu, 16 Jun 2022 01:07:05 GMT",
