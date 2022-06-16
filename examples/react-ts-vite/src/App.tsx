@@ -1,4 +1,4 @@
-import { useC2pa, useThumbnailUrl } from '@contentauth/react-hooks';
+import { useC2pa, useThumbnailUrl } from '@contentauth/react';
 import {
   C2paReadResult,
   generateVerifyUrl,

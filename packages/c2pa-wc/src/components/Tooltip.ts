@@ -7,12 +7,12 @@
  * it.
  */
 
-import { LitElement, html, css } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { defaultStyles } from '../styles';
-import { exportParts, importParts } from '../directives/ExportParts';
-import { Popover } from './Popover';
 import '../../assets/svg/monochrome/help.svg';
+import { exportParts, importParts } from '../directives/ExportParts';
+import { defaultStyles } from '../styles';
+import { Popover } from './Popover';
 
 declare global {
   namespace JSX {
@@ -40,19 +40,17 @@ export class Tooltip extends LitElement {
           --cai-icon-fill: var(--cai-popover-icon-fill, #a8a8a8);
           cursor: pointer;
         }
-        #content {
-          max-width: 180px;
-        }
-        #popover::part(tooltip-popover-box) {
+        #popover::part(popover-box) {
           border-radius: var(--cai-border-radius);
           background-color: #fff;
-          min-width: 185px;
-          max-width: 250px;
           filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4));
         }
-        #popover::part(tooltip-popover-content) {
-          font-size: 14px;
+        #popover::part(popover-content) {
+          min-width: 185px;
+          max-width: 250px;
+          font-size: 13px;
           padding: 10px;
+          box-shadow: none;
         }
       `,
     ];
@@ -62,7 +60,7 @@ export class Tooltip extends LitElement {
     return html`
       <cai-popover
         id="popover"
-        placement="auto"
+        placement="top-end"
         ?interactive=${false}
         part-prefix=${Tooltip.popoverPrefix}
         exportparts=${exportParts(Popover.cssParts, Tooltip.popoverPrefix)}

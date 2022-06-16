@@ -1,15 +1,20 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
-import merge from 'lodash/merge';
-import intersection from 'lodash/intersection';
-import tippy, {
-  Instance as TippyInstance,
-  Props as TippyProps,
+import {
+  arrow,
+  autoUpdate,
+  computePosition,
+  ComputePositionConfig,
+  flip,
+  offset,
   Placement,
-} from 'tippy.js';
+  shift,
+  Strategy,
+} from '@floating-ui/dom';
+import { animate } from '@lit-labs/motion';
+import { css, html, LitElement } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
+import '../../assets/svg/monochrome/help.svg';
 import { PartPrefixable } from '../mixins/PartPrefixable';
 import { defaultStyles } from '../styles';
-import '../../assets/svg/monochrome/help.svg';
 
 declare global {
   namespace JSX {
@@ -19,27 +24,11 @@ declare global {
   }
 }
 
-/**
- * These properties are handled by the property/attribute values and cannot be overridden in the `options` map
- */
-type AttributeTippyProps = 'placement' | 'interactive' | 'trigger';
-/**
- * These properties are not overridable since it would interfere with proper component functioning
- */
-type ImmutableTippyProps =
-  | AttributeTippyProps
-  | 'allowHTML'
-  | 'appendTo'
-  | 'content'
-  | 'onMount';
-/**
- * This contains all properties that are overridable via the `options` attribute
- */
-type AllowedTippyProps = Partial<Omit<TippyProps, ImmutableTippyProps>>;
-
 @customElement('cai-popover')
 export class Popover extends PartPrefixable(LitElement) {
-  private _tippyInstance: TippyInstance | null = null;
+  private _updateCleanupFn: Function | null = null;
+
+  private _eventCleanupFns: Function[] = [];
 
   static readonly cssParts: Record<string, string> = {
     arrow: 'popover-arrow',
@@ -47,20 +36,35 @@ export class Popover extends PartPrefixable(LitElement) {
     content: 'popover-content',
   };
 
+  @state()
+  protected _isShown = false;
+
+  @property({ type: Number })
+  animationDuration = 200;
+
   @property({ type: String })
-  placement: Placement = 'auto-start';
+  placement: Placement = 'right-start';
+
+  @property({ type: String })
+  strategy: Strategy = 'absolute';
 
   @property({ type: Boolean })
-  interactive = true;
+  arrow = false;
 
-  /**
-   * Allows you to override default Tippy.js options specified in the `AllowedTippyProps` type
-   */
   @property({ type: Object })
-  options: AllowedTippyProps = {};
+  flip = null;
+
+  @property({ type: Object })
+  offset = { mainAxis: 10 };
+
+  @property({ type: Object })
+  shift = {};
+
+  @property({ type: Boolean })
+  interactive = false;
 
   @property({ type: String })
-  trigger: string = 'mouseenter focus';
+  trigger: string = 'mouseenter:mouseleave focus:blur';
 
   @query('#arrow')
   arrowElement: HTMLElement | undefined;
@@ -71,151 +75,192 @@ export class Popover extends PartPrefixable(LitElement) {
   @query('#trigger')
   triggerElement: HTMLElement | undefined;
 
+  @property({ attribute: false })
+  modifyConfig: (
+    config: Partial<ComputePositionConfig>,
+  ) => Partial<ComputePositionConfig> = (
+    config: Partial<ComputePositionConfig>,
+  ) => config;
+
   static get styles() {
     return [
       defaultStyles,
-      // Imported from tippy.css
       css`
-        .tippy-box[data-animation='fade'][data-state='hidden'] {
+        #content {
           opacity: 0;
-        }
-        [data-tippy-root] {
-          max-width: calc(100vw - 10px);
-        }
-        .tippy-box {
-          position: relative;
+          position: absolute;
+          top: 0;
+          left: 0;
           background-color: var(--cai-popover-bg-color, #fff);
           color: var(--cai-popover-color, #222222);
           transition-property: transform, visibility, opacity;
+          border-radius: 6px;
+          border: 1px solid var(--cai-popover-border-color, #ddd);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
-        .tippy-content {
-          transition-property: none;
+        #content.shown {
+          opacity: 1;
         }
-        .tippy-box[data-placement^='top'] > .tippy-arrow {
-          bottom: 0;
+        #content.hidden {
+          display: none;
         }
-        .tippy-box[data-placement^='top'] > .tippy-arrow:before {
-          bottom: -7px;
-          left: 0;
-          border-width: 8px 8px 0;
-          border-top-color: initial;
-          transform-origin: center top;
-        }
-        .tippy-box[data-placement^='bottom'] > .tippy-arrow {
-          top: 0;
-        }
-        .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
-          top: -7px;
-          left: 0;
-          border-width: 0 8px 8px;
-          border-bottom-color: initial;
-          transform-origin: center bottom;
-        }
-        .tippy-box[data-placement^='left'] > .tippy-arrow {
-          right: 0;
-        }
-        .tippy-box[data-placement^='left'] > .tippy-arrow:before {
-          border-width: 8px 0 8px 8px;
-          border-left-color: initial;
-          right: -7px;
-          transform-origin: center left;
-        }
-        .tippy-box[data-placement^='right'] > .tippy-arrow {
-          left: 0;
-        }
-        .tippy-box[data-placement^='right'] > .tippy-arrow:before {
-          left: -7px;
-          border-width: 8px 8px 8px 0;
-          border-right-color: initial;
-          transform-origin: center right;
-        }
-        .tippy-box[data-inertia][data-state='visible'] {
-          transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-        }
-        .tippy-arrow {
+        #arrow {
+          position: absolute;
+          background: var(--cai-popover-bg-color, #fff);
           width: 16px;
           height: 16px;
-          color: var(--cai-popover-bg-color, #fff);
+          transform: rotate(45deg);
         }
-        .tippy-arrow:before {
-          content: '';
-          position: absolute;
-          border-color: transparent;
-          border-style: solid;
+        #trigger {
+          cursor: pointer;
         }
       `,
     ];
   }
 
-  /**
-   * Gets the backing Tippy.js instance
-   * @see {@link https://atomiks.github.io/tippyjs/v6/methods/}
-   */
-  get tippyInstance() {
-    return this._tippyInstance;
+  private _showTooltip() {
+    this._isShown = true;
+    this._updatePosition();
   }
 
-  private _decorateTippyDom(instance: TippyInstance) {
-    const root = instance.popper;
-    ['arrow', 'box', 'content'].forEach((part) => {
-      root
-        .querySelector(`.tippy-${part}`)
-        ?.setAttribute('part', this.renderPart(part));
+  private _hideTooltip() {
+    this._isShown = false;
+  }
+
+  private _cleanupTriggers() {
+    while (this._eventCleanupFns.length) {
+      const cleanup = this._eventCleanupFns.shift();
+      cleanup?.();
+    }
+  }
+
+  private _setTriggers() {
+    this._cleanupTriggers();
+    const triggers = this.trigger.split(/\s+/);
+
+    this._eventCleanupFns = triggers.map((trigger) => {
+      const [show, hide] = trigger.split(':');
+      this.triggerElement!.addEventListener(show, this._showTooltip.bind(this));
+      if (this.interactive && hide === 'mouseleave') {
+        this.contentElement!.addEventListener(
+          hide,
+          this._hideTooltip.bind(this),
+        );
+      } else {
+        this.triggerElement!.addEventListener(
+          hide,
+          this._hideTooltip.bind(this),
+        );
+      }
+      return () => {
+        this.triggerElement!.removeEventListener(show, this._showTooltip);
+        if (this.interactive && hide === 'mouseleave') {
+          this.contentElement!.addEventListener(
+            hide,
+            this._hideTooltip.bind(this),
+          );
+        } else {
+          this.triggerElement!.removeEventListener(hide, this._hideTooltip);
+        }
+      };
     });
-    instance.popperInstance?.update();
   }
 
-  private _getTippyProps() {
-    const overridableDefaults: Partial<TippyProps> = {
-      animation: 'fade',
-      hideOnClick: false,
-    };
-    const immutableProps: Pick<TippyProps, ImmutableTippyProps> = {
-      allowHTML: true, // We always want this to be based on a content element
-      appendTo: 'parent',
-      content: this.contentElement!,
+  private _getPositionConfig(): Partial<ComputePositionConfig> {
+    const middleware: ComputePositionConfig['middleware'] = [];
+    if (this.flip) {
+      middleware.push(flip(this.flip));
+    }
+    if (this.offset) {
+      middleware.push(offset(this.offset));
+    }
+    if (this.shift) {
+      middleware.push(shift(this.shift));
+    }
+    if (this.arrow) {
+      middleware.push(
+        arrow({
+          element: this.arrowElement!,
+        }),
+      );
+    }
+    return this.modifyConfig({
       placement: this.placement,
-      interactive: this.interactive,
-      trigger: this.trigger,
-      onMount: this._decorateTippyDom.bind(this),
-    };
+      strategy: this.strategy,
+      middleware,
+    });
+  }
 
-    return merge(
-      overridableDefaults,
-      this.options,
-      // Options where attributes take precedence or can't be changed
-      immutableProps,
+  private async _updatePosition() {
+    const { x, y, middlewareData } = await computePosition(
+      this.triggerElement!,
+      this.contentElement!,
+      this._getPositionConfig(),
     );
+
+    Object.assign(this.contentElement!.style, {
+      left: `${x}px`,
+      top: `${y}px`,
+    });
+
+    if (this.arrow && this.arrowElement) {
+      const { x: ax, y: ay } = middlewareData.arrow!;
+      Object.assign(this.arrowElement!.style, {
+        left: ax != null ? `${ax}px` : '',
+        top: ay != null ? `${ay}px` : '',
+      });
+    }
   }
 
   firstUpdated(): void {
-    this._tippyInstance = tippy(this.triggerElement!, this._getTippyProps());
+    this._setTriggers();
+    this._updateCleanupFn = autoUpdate(
+      this.triggerElement!,
+      this.contentElement!,
+      () => {
+        this._updatePosition();
+      },
+    );
+    if (!this.interactive) {
+      this.contentElement!.style.pointerEvents = 'none';
+    }
   }
 
   disconnectedCallback(): void {
-    this._tippyInstance?.destroy();
+    this._updateCleanupFn?.();
+    this._cleanupTriggers();
     super.disconnectedCallback();
-  }
-
-  /**
-   * Make sure we update Tippy.js whenever any related attributes change
-   */
-  updated(changedProperties: any) {
-    const changedKeys = Object.keys(changedProperties);
-    const hadRelatedChange =
-      intersection(changedKeys, Popover.observedAttributes).length > 0;
-    if (hadRelatedChange) {
-      this._tippyInstance?.setProps(this._getTippyProps());
-    }
   }
 
   render() {
     return html`<div id="element">
-      <div id="content">
+      <div
+        id="content"
+        class=${this._isShown ? 'shown' : ''}
+        part=${Popover.cssParts.content}
+        ${animate({
+          keyframeOptions: {
+            duration: this.animationDuration,
+          },
+          onStart: (anim) => {
+            if (anim.element.classList.contains('shown')) {
+              anim.element.classList.remove('hidden');
+            }
+          },
+          onComplete: (anim) => {
+            if (!anim.element.classList.contains('shown')) {
+              anim.element.classList.add('hidden');
+            }
+          },
+        })}
+      >
         <slot name="content"></slot>
+        ${this.arrow
+          ? html`<div id="arrow" part=${Popover.cssParts.arrow}></div>`
+          : null}
       </div>
-      <div id="trigger">
-        <slot id="trigger" name="trigger"></slot>
+      <div id="trigger" part=${Popover.cssParts.trigger}>
+        <slot name="trigger"></slot>
       </div>
     </div>`;
   }
