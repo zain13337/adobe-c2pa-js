@@ -1,17 +1,21 @@
 import {
   arrow,
+  autoPlacement,
   autoUpdate,
   computePosition,
   ComputePositionConfig,
   flip,
+  inline,
   offset,
   Placement,
   shift,
   Strategy,
 } from '@floating-ui/dom';
 import { animate } from '@lit-labs/motion';
-import { css, html, LitElement } from 'lit';
+import { css, html, LitElement, PropertyValueMap } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import '../../assets/svg/monochrome/help.svg';
 import { PartPrefixable } from '../mixins/PartPrefixable';
 import { defaultStyles } from '../styles';
@@ -30,6 +34,8 @@ export class Popover extends PartPrefixable(LitElement) {
 
   private _eventCleanupFns: Function[] = [];
 
+  private positionConfig: Partial<ComputePositionConfig> = {};
+
   static readonly cssParts: Record<string, string> = {
     arrow: 'popover-arrow',
     box: 'popover-box',
@@ -43,28 +49,39 @@ export class Popover extends PartPrefixable(LitElement) {
   animationDuration = 200;
 
   @property({ type: String })
-  placement: Placement = 'right-start';
+  placement: Placement = 'left-start';
 
   @property({ type: String })
   strategy: Strategy = 'absolute';
 
+  // No arguments generally passed except for the arrow element, which we do in the component
   @property({ type: Boolean })
   arrow = false;
 
   @property({ type: Object })
-  flip = null;
+  flip: Parameters<typeof flip>[0] = undefined;
 
   @property({ type: Object })
-  offset = { mainAxis: 10 };
+  autoPlacement: Parameters<typeof autoPlacement>[0] = undefined;
 
   @property({ type: Object })
-  shift = {};
+  offset: Parameters<typeof offset>[0] = { mainAxis: 10 };
+
+  @property({ type: Object })
+  shift: Parameters<typeof shift>[0] = {};
+
+  // No arguments generally passed
+  @property({ type: Boolean })
+  inline = false;
 
   @property({ type: Boolean })
   interactive = false;
 
   @property({ type: String })
   trigger: string = 'mouseenter:mouseleave focus:blur';
+
+  @property({ type: Number })
+  zIndex = 10;
 
   @query('#arrow')
   arrowElement: HTMLElement | undefined;
@@ -75,17 +92,53 @@ export class Popover extends PartPrefixable(LitElement) {
   @query('#trigger')
   triggerElement: HTMLElement | undefined;
 
-  @property({ attribute: false })
-  modifyConfig: (
-    config: Partial<ComputePositionConfig>,
-  ) => Partial<ComputePositionConfig> = (
-    config: Partial<ComputePositionConfig>,
-  ) => config;
+  // @TODO: respect updated properties
+  protected updated(
+    _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>,
+  ): void {
+    const middleware: ComputePositionConfig['middleware'] = [];
+
+    // The order here is important - please reference the floating-ui docs
+    // Also remember that `{}` is truthy, any disabled-by-default options should be set to `undefined`
+    if (this.inline) {
+      middleware.push(inline());
+    }
+    // Note that autoPlacement cannot be used with flip
+    if (this.flip && !this.autoPlacement) {
+      middleware.push(flip(this.flip));
+    }
+    if (this.offset) {
+      middleware.push(offset(this.offset));
+    }
+    if (this.shift) {
+      middleware.push(shift(this.shift));
+    }
+    if (this.arrow) {
+      middleware.push(
+        arrow({
+          element: this.arrowElement!,
+        }),
+      );
+    }
+    if (this.autoPlacement) {
+      middleware.push(autoPlacement(this.autoPlacement));
+    }
+
+    this.positionConfig = {
+      placement: this.placement,
+      strategy: this.strategy,
+      middleware,
+    };
+  }
 
   static get styles() {
     return [
       defaultStyles,
       css`
+        :host {
+          position: relative;
+          z-index: 100;
+        }
         #content {
           opacity: 0;
           position: absolute;
@@ -97,12 +150,16 @@ export class Popover extends PartPrefixable(LitElement) {
           border-radius: 6px;
           border: 1px solid var(--cai-popover-border-color, #ddd);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+          pointer-events: none;
         }
         #content.shown {
           opacity: 1;
         }
         #content.hidden {
           display: none;
+        }
+        #content.interactive {
+          pointer-events: auto;
         }
         #arrow {
           position: absolute;
@@ -166,36 +223,11 @@ export class Popover extends PartPrefixable(LitElement) {
     });
   }
 
-  private _getPositionConfig(): Partial<ComputePositionConfig> {
-    const middleware: ComputePositionConfig['middleware'] = [];
-    if (this.flip) {
-      middleware.push(flip(this.flip));
-    }
-    if (this.offset) {
-      middleware.push(offset(this.offset));
-    }
-    if (this.shift) {
-      middleware.push(shift(this.shift));
-    }
-    if (this.arrow) {
-      middleware.push(
-        arrow({
-          element: this.arrowElement!,
-        }),
-      );
-    }
-    return this.modifyConfig({
-      placement: this.placement,
-      strategy: this.strategy,
-      middleware,
-    });
-  }
-
   private async _updatePosition() {
     const { x, y, middlewareData } = await computePosition(
       this.triggerElement!,
       this.contentElement!,
-      this._getPositionConfig(),
+      this.positionConfig,
     );
 
     Object.assign(this.contentElement!.style, {
@@ -221,9 +253,6 @@ export class Popover extends PartPrefixable(LitElement) {
         this._updatePosition();
       },
     );
-    if (!this.interactive) {
-      this.contentElement!.style.pointerEvents = 'none';
-    }
   }
 
   disconnectedCallback(): void {
@@ -233,10 +262,19 @@ export class Popover extends PartPrefixable(LitElement) {
   }
 
   render() {
+    const contentClassMap = {
+      shown: this._isShown,
+      interactive: this.interactive,
+    };
+    const contentStyleMap = {
+      'z-index': this.zIndex.toString(),
+    };
+
     return html`<div id="element">
       <div
         id="content"
-        class=${this._isShown ? 'shown' : ''}
+        class=${classMap(contentClassMap)}
+        style=${styleMap(contentStyleMap)}
         part=${Popover.cssParts.content}
         ${animate({
           keyframeOptions: {
