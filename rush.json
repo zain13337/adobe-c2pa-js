@@ -16,7 +16,7 @@
    * path segment in the "$schema" field for all your Rush config files.  This will ensure
    * correct error-underlining and tab-completion for editors such as VS Code.
    */
-  "rushVersion": "5.67.0",
+  "rushVersion": "5.74.0",
 
   /**
    * The next field selects which package manager should be installed and determines its version.
@@ -432,6 +432,31 @@
       "packageName": "@contentauth/config",
       "projectFolder": "tools/config",
       "tags": ["tooling"]
+    },
+    {
+      "packageName": "esm-imports",
+      "projectFolder": "examples/esm-imports",
+      "tags": ["example"]
+    },
+    {
+      "packageName": "minimal-ts-rollup",
+      "projectFolder": "examples/minimal-ts-rollup",
+      "tags": ["example"]
+    },
+    {
+      "packageName": "minimal-ts-vite",
+      "projectFolder": "examples/minimal-ts-vite",
+      "tags": ["example"]
+    },
+    {
+      "packageName": "minimal-ts-webpack",
+      "projectFolder": "examples/minimal-ts-webpack",
+      "tags": ["example"]
+    },
+    {
+      "packageName": "react-ts-vite",
+      "projectFolder": "examples/react-ts-vite",
+      "tags": ["example"]
     }
     // {
     //   "packageName": "react-ts-vite",
