@@ -2,6 +2,26 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.10.0",
+      "tag": "c2pa_v0.10.0",
+      "date": "Fri, 15 Jul 2022 19:02:22 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Update to use c2pa-rs@0.7.0 under the hood"
+          },
+          {
+            "comment": "Minor updates to returned assertion and manifest data structures"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.8.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.9.2",
       "tag": "c2pa_v0.9.2",
       "date": "Tue, 21 Jun 2022 19:32:15 GMT",
