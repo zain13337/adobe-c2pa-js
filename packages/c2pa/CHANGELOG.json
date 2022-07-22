@@ -2,6 +2,18 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.10.1",
+      "tag": "c2pa_v0.10.1",
+      "date": "Fri, 22 Jul 2022 18:58:41 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add basic support for c2pa actions"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.10.0",
       "tag": "c2pa_v0.10.0",
       "date": "Fri, 15 Jul 2022 19:02:22 GMT",
