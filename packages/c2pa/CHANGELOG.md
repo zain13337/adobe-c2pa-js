@@ -1,6 +1,14 @@
 # Change Log - c2pa
 
-This log was last generated on Tue, 02 Aug 2022 16:00:06 GMT and should not be manually modified.
+This log was last generated on Thu, 18 Aug 2022 20:45:42 GMT and should not be manually modified.
+
+## 0.10.3
+Thu, 18 Aug 2022 20:45:42 GMT
+
+### Patches
+
+- Add `application/x-c2pa-manifest-store` to list of accepted mime-types
+- Update c2pa-rs to 0.12.0
 
 ## 0.10.2
 Tue, 02 Aug 2022 16:00:06 GMT

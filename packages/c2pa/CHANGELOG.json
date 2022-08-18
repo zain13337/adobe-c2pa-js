@@ -2,6 +2,21 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.10.3",
+      "tag": "c2pa_v0.10.3",
+      "date": "Thu, 18 Aug 2022 20:45:42 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add `application/x-c2pa-manifest-store` to list of accepted mime-types"
+          },
+          {
+            "comment": "Update c2pa-rs to 0.12.0"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.10.2",
       "tag": "c2pa_v0.10.2",
       "date": "Tue, 02 Aug 2022 16:00:06 GMT",
