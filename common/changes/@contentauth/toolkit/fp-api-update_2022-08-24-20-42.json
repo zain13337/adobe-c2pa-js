@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@contentauth/toolkit",
+      "comment": "Extract TS types to types/ directory",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@contentauth/toolkit"
+}
