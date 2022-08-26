@@ -2,6 +2,32 @@
   "name": "@contentauth/react",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@contentauth/react_v0.2.0",
+      "date": "Fri, 26 Aug 2022 16:47:09 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Remove useSerializable hook"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"c2pa\" to `0.11.0`"
+          },
+          {
+            "comment": "Updating dependency \"c2pa-wc\" to `0.8.0`"
+          },
+          {
+            "comment": "Updating dependency \"c2pa\" from `^0.10.3` to `^0.11.0`"
+          },
+          {
+            "comment": "Updating dependency \"c2pa-wc\" from `^0.7.5` to `^0.8.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.7",
       "tag": "@contentauth/react_v0.1.7",
       "date": "Thu, 18 Aug 2022 20:45:42 GMT",

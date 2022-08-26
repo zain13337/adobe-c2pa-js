@@ -2,6 +2,18 @@
   "name": "@contentauth/toolkit",
   "entries": [
     {
+      "version": "0.9.0",
+      "tag": "@contentauth/toolkit_v0.9.0",
+      "date": "Fri, 26 Aug 2022 16:47:09 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Extract TS types to types/ directory"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.8.1",
       "tag": "@contentauth/toolkit_v0.8.1",
       "date": "Tue, 02 Aug 2022 16:00:06 GMT",

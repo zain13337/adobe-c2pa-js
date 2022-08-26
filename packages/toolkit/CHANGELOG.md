@@ -1,6 +1,13 @@
 # Change Log - @contentauth/toolkit
 
-This log was last generated on Tue, 02 Aug 2022 16:00:06 GMT and should not be manually modified.
+This log was last generated on Fri, 26 Aug 2022 16:47:09 GMT and should not be manually modified.
+
+## 0.9.0
+Fri, 26 Aug 2022 16:47:09 GMT
+
+### Minor changes
+
+- Extract TS types to types/ directory
 
 ## 0.8.1
 Tue, 02 Aug 2022 16:00:06 GMT

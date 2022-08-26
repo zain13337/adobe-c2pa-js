@@ -1,6 +1,14 @@
 # Change Log - c2pa
 
-This log was last generated on Thu, 18 Aug 2022 20:45:42 GMT and should not be manually modified.
+This log was last generated on Fri, 26 Aug 2022 16:47:09 GMT and should not be manually modified.
+
+## 0.11.0
+Fri, 26 Aug 2022 16:47:09 GMT
+
+### Minor changes
+
+- Replaced resolvers with selector functions to derive more complex manifest data
+- Significantly overhauled interfaces
 
 ## 0.10.3
 Thu, 18 Aug 2022 20:45:42 GMT

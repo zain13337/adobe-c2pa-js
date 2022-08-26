@@ -1,6 +1,13 @@
 # Change Log - @contentauth/react
 
-This log was last generated on Thu, 18 Aug 2022 20:45:42 GMT and should not be manually modified.
+This log was last generated on Fri, 26 Aug 2022 16:47:09 GMT and should not be manually modified.
+
+## 0.2.0
+Fri, 26 Aug 2022 16:47:09 GMT
+
+### Minor changes
+
+- Remove useSerializable hook
 
 ## 0.1.7
 Thu, 18 Aug 2022 20:45:42 GMT
