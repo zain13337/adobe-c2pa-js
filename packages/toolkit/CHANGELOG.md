@@ -1,6 +1,13 @@
 # Change Log - @contentauth/toolkit
 
-This log was last generated on Fri, 26 Aug 2022 16:47:09 GMT and should not be manually modified.
+This log was last generated on Tue, 06 Sep 2022 20:05:32 GMT and should not be manually modified.
+
+## 0.9.1
+Tue, 06 Sep 2022 20:05:32 GMT
+
+### Patches
+
+- Support cloud stored manifests
 
 ## 0.9.0
 Fri, 26 Aug 2022 16:47:09 GMT

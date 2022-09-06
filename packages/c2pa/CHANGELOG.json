@@ -2,6 +2,26 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.11.1",
+      "tag": "c2pa_v0.11.1",
+      "date": "Tue, 06 Sep 2022 20:05:32 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Support cloud stored manifests"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/detector\" to `0.3.1`"
+          },
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.9.1`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.11.0",
       "tag": "c2pa_v0.11.0",
       "date": "Fri, 26 Aug 2022 16:47:09 GMT",

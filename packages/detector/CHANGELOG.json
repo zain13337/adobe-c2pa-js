@@ -2,6 +2,18 @@
   "name": "@contentauth/detector",
   "entries": [
     {
+      "version": "0.3.1",
+      "tag": "@contentauth/detector_v0.3.1",
+      "date": "Tue, 06 Sep 2022 20:05:32 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Detect remote manifest URLs"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.0",
       "tag": "@contentauth/detector_v0.3.0",
       "date": "Fri, 26 Aug 2022 16:47:09 GMT",
