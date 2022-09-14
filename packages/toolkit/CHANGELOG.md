@@ -1,6 +1,13 @@
 # Change Log - @contentauth/toolkit
 
-This log was last generated on Tue, 06 Sep 2022 20:05:32 GMT and should not be manually modified.
+This log was last generated on Wed, 14 Sep 2022 13:56:41 GMT and should not be manually modified.
+
+## 0.9.2
+Wed, 14 Sep 2022 13:56:41 GMT
+
+### Patches
+
+- Update to c2pa-rs 0.13.1, add get_manifest_store_data_from_manifest_and_asset_bytes
 
 ## 0.9.1
 Tue, 06 Sep 2022 20:05:32 GMT

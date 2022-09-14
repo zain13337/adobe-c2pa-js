@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Tue, 06 Sep 2022 20:05:32 GMT and should not be manually modified.
+This log was last generated on Wed, 14 Sep 2022 13:56:41 GMT and should not be manually modified.
+
+## 0.11.2
+Wed, 14 Sep 2022 13:56:41 GMT
+
+### Patches
+
+- Validate remote manifests
 
 ## 0.11.1
 Tue, 06 Sep 2022 20:05:32 GMT
