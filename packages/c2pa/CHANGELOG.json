@@ -2,6 +2,18 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.11.3",
+      "tag": "c2pa_v0.11.3",
+      "date": "Thu, 29 Sep 2022 18:19:22 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Additional documentation and exported types"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.11.2",
       "tag": "c2pa_v0.11.2",
       "date": "Wed, 14 Sep 2022 13:56:41 GMT",
