@@ -1,6 +1,13 @@
 # Change Log - @contentauth/toolkit
 
-This log was last generated on Wed, 14 Sep 2022 13:56:41 GMT and should not be manually modified.
+This log was last generated on Mon, 17 Oct 2022 18:22:56 GMT and should not be manually modified.
+
+## 0.9.3
+Mon, 17 Oct 2022 18:22:56 GMT
+
+### Patches
+
+- Support Safari 14
 
 ## 0.9.2
 Wed, 14 Sep 2022 13:56:41 GMT
