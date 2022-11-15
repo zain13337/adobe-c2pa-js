@@ -1,5 +1,8 @@
 {
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.stories.ts", "**/*.spec.ts", "dist/**/*"],
   "compilerOptions": {
+    "rootDir": "src",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "experimentalDecorators": true,
@@ -11,11 +14,11 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "useDefineForClassFields": false,
     "outDir": "./dist",
     "resolveJsonModule": true,
-    "rootDirs": ["./src", "./stories"],
     "strict": true,
-    "target": "es2017"
-  },
-  "exclude": ["./dist/**/*", "./test/**/*", "./stories/**/*"]
+    "target": "es2017",
+    "types": ["@types/jasmine"]
+  }
 }
