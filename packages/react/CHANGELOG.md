@@ -1,6 +1,13 @@
 # Change Log - @contentauth/react
 
-This log was last generated on Mon, 17 Oct 2022 18:22:56 GMT and should not be manually modified.
+This log was last generated on Tue, 15 Nov 2022 19:56:02 GMT and should not be manually modified.
+
+## 0.2.5
+Tue, 15 Nov 2022 19:56:02 GMT
+
+### Patches
+
+- Update to latest c2pa-js
 
 ## 0.2.4
 Mon, 17 Oct 2022 18:22:56 GMT

@@ -2,6 +2,21 @@
   "name": "@contentauth/toolkit",
   "entries": [
     {
+      "version": "0.9.4",
+      "tag": "@contentauth/toolkit_v0.9.4",
+      "date": "Tue, 15 Nov 2022 19:56:02 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Support Safari 14"
+          },
+          {
+            "comment": "Update to c2pa-rs 0.15.0"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.9.3",
       "tag": "@contentauth/toolkit_v0.9.3",
       "date": "Mon, 17 Oct 2022 18:22:56 GMT",

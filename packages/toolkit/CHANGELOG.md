@@ -1,6 +1,14 @@
 # Change Log - @contentauth/toolkit
 
-This log was last generated on Mon, 17 Oct 2022 18:22:56 GMT and should not be manually modified.
+This log was last generated on Tue, 15 Nov 2022 19:56:02 GMT and should not be manually modified.
+
+## 0.9.4
+Tue, 15 Nov 2022 19:56:02 GMT
+
+### Patches
+
+- Support Safari 14
+- Update to c2pa-rs 0.15.0
 
 ## 0.9.3
 Mon, 17 Oct 2022 18:22:56 GMT

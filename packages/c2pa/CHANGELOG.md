@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Mon, 17 Oct 2022 18:22:56 GMT and should not be manually modified.
+This log was last generated on Tue, 15 Nov 2022 19:56:02 GMT and should not be manually modified.
+
+## 0.12.0
+Tue, 15 Nov 2022 19:56:02 GMT
+
+### Minor changes
+
+- Rename createL2Manifest to createL2ManifestStore and include validation info
 
 ## 0.11.4
 Mon, 17 Oct 2022 18:22:56 GMT

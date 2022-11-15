@@ -2,6 +2,18 @@
   "name": "@contentauth/detector",
   "entries": [
     {
+      "version": "0.3.3",
+      "tag": "@contentauth/detector_v0.3.3",
+      "date": "Tue, 15 Nov 2022 19:56:02 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Support Safari 14"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.2",
       "tag": "@contentauth/detector_v0.3.2",
       "date": "Mon, 17 Oct 2022 18:22:56 GMT",

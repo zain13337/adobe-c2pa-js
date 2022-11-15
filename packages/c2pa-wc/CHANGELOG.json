@@ -2,6 +2,23 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.9.0",
+      "tag": "c2pa-wc_v0.9.0",
+      "date": "Tue, 15 Nov 2022 19:56:02 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Export sections as individual components, use CSS vars for styling"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"c2pa\" to `0.12.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.8.4",
       "tag": "c2pa-wc_v0.8.4",
       "date": "Mon, 17 Oct 2022 18:22:56 GMT",
