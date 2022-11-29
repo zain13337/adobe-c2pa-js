@@ -2,6 +2,18 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.9.1",
+      "tag": "c2pa-wc_v0.9.1",
+      "date": "Tue, 29 Nov 2022 21:15:11 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix improperly hidden popover"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.9.0",
       "tag": "c2pa-wc_v0.9.0",
       "date": "Tue, 15 Nov 2022 19:56:02 GMT",

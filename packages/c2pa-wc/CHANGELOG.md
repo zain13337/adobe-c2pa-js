@@ -1,6 +1,13 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Tue, 15 Nov 2022 19:56:02 GMT and should not be manually modified.
+This log was last generated on Tue, 29 Nov 2022 21:15:11 GMT and should not be manually modified.
+
+## 0.9.1
+Tue, 29 Nov 2022 21:15:11 GMT
+
+### Patches
+
+- Fix improperly hidden popover
 
 ## 0.9.0
 Tue, 15 Nov 2022 19:56:02 GMT
