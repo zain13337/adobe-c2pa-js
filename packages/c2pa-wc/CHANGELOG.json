@@ -2,6 +2,18 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.9.2",
+      "tag": "c2pa-wc_v0.9.2",
+      "date": "Tue, 10 Jan 2023 20:51:02 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Updated link color"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.9.1",
       "tag": "c2pa-wc_v0.9.1",
       "date": "Tue, 29 Nov 2022 21:15:11 GMT",
