@@ -1,6 +1,13 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Tue, 10 Jan 2023 20:51:02 GMT and should not be manually modified.
+This log was last generated on Fri, 13 Jan 2023 21:45:12 GMT and should not be manually modified.
+
+## 0.10.0
+Fri, 13 Jan 2023 21:45:12 GMT
+
+### Minor changes
+
+- Update cai-tooltip to support dynamic positioning
 
 ## 0.9.2
 Tue, 10 Jan 2023 20:51:02 GMT
