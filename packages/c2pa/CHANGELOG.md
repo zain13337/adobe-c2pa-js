@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Tue, 15 Nov 2022 19:56:02 GMT and should not be manually modified.
+This log was last generated on Wed, 18 Jan 2023 18:02:12 GMT and should not be manually modified.
+
+## 0.12.1
+Wed, 18 Jan 2023 18:02:12 GMT
+
+### Patches
+
+- C2PA v1.2 actions compatibility changes and translations
 
 ## 0.12.0
 Tue, 15 Nov 2022 19:56:02 GMT
