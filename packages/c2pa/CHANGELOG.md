@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Wed, 18 Jan 2023 18:02:12 GMT and should not be manually modified.
+This log was last generated on Thu, 26 Jan 2023 16:40:49 GMT and should not be manually modified.
+
+## 0.12.2
+Thu, 26 Jan 2023 16:40:49 GMT
+
+### Patches
+
+- Add validation for remote manifests that are not properly-formed URLs
 
 ## 0.12.1
 Wed, 18 Jan 2023 18:02:12 GMT
