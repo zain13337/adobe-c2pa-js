@@ -95,6 +95,9 @@ export class Popover extends LitElement {
   @query('#content')
   contentElement: HTMLElement | undefined;
 
+  @query('#element')
+  hostElement: HTMLElement | undefined;
+
   @query('#trigger')
   triggerElement: HTMLElement | undefined;
 
@@ -179,6 +182,13 @@ export class Popover extends LitElement {
           height: 8px;
           transform: rotate(45deg);
         }
+        .hidden-layer {
+          position: absolute;
+          left: calc(var(--cai-popover-icon-size, 24px) * -1);
+          width: var(--cai-popover-icon-size, 24px);
+          height: calc(var(--cai-popover-icon-size, 24px) * 3);
+          top: calc(var(--cai-popover-icon-size, 24px) * -1);
+        }
       `,
     ];
   }
@@ -207,10 +217,7 @@ export class Popover extends LitElement {
       const [show, hide] = trigger.split(':');
       this.triggerElement!.addEventListener(show, this._showTooltip.bind(this));
       if (this.interactive && hide === 'mouseleave') {
-        this.contentElement!.addEventListener(
-          hide,
-          this._hideTooltip.bind(this),
-        );
+        this.hostElement!.addEventListener(hide, this._hideTooltip.bind(this));
       } else {
         this.triggerElement!.addEventListener(
           hide,
@@ -350,6 +357,7 @@ export class Popover extends LitElement {
         ${this.arrow ? html`<div id="arrow"></div>` : null}
       </div>
       <div id="trigger">
+        <div class="hidden-layer"></div>
         <slot name="trigger"></slot>
       </div>
     </div>`;
