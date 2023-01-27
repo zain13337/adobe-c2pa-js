@@ -2,6 +2,18 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.10.4",
+      "tag": "c2pa-wc_v0.10.4",
+      "date": "Fri, 27 Jan 2023 19:03:24 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Makes sure the manifest summary closes when the tooltip is exited"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.10.3",
       "tag": "c2pa-wc_v0.10.3",
       "date": "Thu, 26 Jan 2023 16:40:49 GMT",

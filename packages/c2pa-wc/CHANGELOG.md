@@ -1,6 +1,13 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Thu, 26 Jan 2023 16:40:49 GMT and should not be manually modified.
+This log was last generated on Fri, 27 Jan 2023 19:03:24 GMT and should not be manually modified.
+
+## 0.10.4
+Fri, 27 Jan 2023 19:03:24 GMT
+
+### Patches
+
+- Makes sure the manifest summary closes when the tooltip is exited
 
 ## 0.10.3
 Thu, 26 Jan 2023 16:40:49 GMT
