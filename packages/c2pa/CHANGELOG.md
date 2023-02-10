@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Thu, 26 Jan 2023 16:40:49 GMT and should not be manually modified.
+This log was last generated on Fri, 10 Feb 2023 17:56:22 GMT and should not be manually modified.
+
+## 0.13.0
+Fri, 10 Feb 2023 17:56:22 GMT
+
+### Minor changes
+
+- Exported `getC2paCategorizedActions` function from `selectEditsAndActivity` selector file
 
 ## 0.12.2
 Thu, 26 Jan 2023 16:40:49 GMT
