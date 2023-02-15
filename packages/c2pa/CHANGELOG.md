@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Mon, 13 Feb 2023 17:35:38 GMT and should not be manually modified.
+This log was last generated on Wed, 15 Feb 2023 20:44:21 GMT and should not be manually modified.
+
+## 0.13.2
+Wed, 15 Feb 2023 20:44:21 GMT
+
+### Patches
+
+- Removed unnecessary translations, export assertion types
 
 ## 0.13.1
 Mon, 13 Feb 2023 17:35:38 GMT

@@ -2,6 +2,18 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.13.2",
+      "tag": "c2pa_v0.13.2",
+      "date": "Wed, 15 Feb 2023 20:44:21 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Removed unnecessary translations, export assertion types"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.13.1",
       "tag": "c2pa_v0.13.1",
       "date": "Mon, 13 Feb 2023 17:35:38 GMT",
