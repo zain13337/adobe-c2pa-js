@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Wed, 15 Feb 2023 20:44:21 GMT and should not be manually modified.
+This log was last generated on Fri, 03 Mar 2023 16:52:27 GMT and should not be manually modified.
+
+## 0.13.3
+Fri, 03 Mar 2023 16:52:27 GMT
+
+### Patches
+
+- Add changes to support ResourceStore from c2pa-rs 0.18.0
 
 ## 0.13.2
 Wed, 15 Feb 2023 20:44:21 GMT
