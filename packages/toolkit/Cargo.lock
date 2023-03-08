@@ -252,7 +252,7 @@ dependencies = [
 
 [[package]]
 name = "c2pa-js-toolkit"
-version = "0.18.0-1"
+version = "0.18.1-1"
 dependencies = [
  "c2pa",
  "console_error_panic_hook",
