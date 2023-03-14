@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Tue, 14 Mar 2023 16:35:49 GMT and should not be manually modified.
+This log was last generated on Tue, 14 Mar 2023 23:02:41 GMT and should not be manually modified.
+
+## 0.14.3
+Tue, 14 Mar 2023 23:02:41 GMT
+
+### Patches
+
+- Use self over window to support non-browser contexts
 
 ## 0.14.2
 Tue, 14 Mar 2023 16:35:49 GMT

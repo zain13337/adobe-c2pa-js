@@ -2,6 +2,18 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.14.3",
+      "tag": "c2pa_v0.14.3",
+      "date": "Tue, 14 Mar 2023 23:02:41 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Use self over window to support non-browser contexts"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.14.2",
       "tag": "c2pa_v0.14.2",
       "date": "Tue, 14 Mar 2023 16:35:49 GMT",
