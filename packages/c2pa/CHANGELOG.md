@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Mon, 13 Mar 2023 22:23:10 GMT and should not be manually modified.
+This log was last generated on Tue, 14 Mar 2023 16:35:49 GMT and should not be manually modified.
+
+## 0.14.2
+Tue, 14 Mar 2023 16:35:49 GMT
+
+### Patches
+
+- Fix builds on Windows platforms
 
 ## 0.14.1
 Mon, 13 Mar 2023 22:23:10 GMT
