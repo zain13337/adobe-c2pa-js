@@ -1,6 +1,14 @@
 # Change Log - @contentauth/detector
 
-This log was last generated on Tue, 14 Mar 2023 16:35:49 GMT and should not be manually modified.
+This log was last generated on Wed, 22 Mar 2023 18:52:56 GMT and should not be manually modified.
+
+## 0.3.5
+Wed, 22 Mar 2023 18:52:56 GMT
+
+### Patches
+
+- Adds the new `--weak-refs` and `--reference-types` flags now available in [wasm-pack 0.11.0](https://github.com/rustwasm/wasm-pack/blob/mast
+- Remove dependency on [wee_alloc](https://github.com/rustwasm/wee_alloc) since it is unmaintained and has a reported memory leak
 
 ## 0.3.4
 Tue, 14 Mar 2023 16:35:49 GMT

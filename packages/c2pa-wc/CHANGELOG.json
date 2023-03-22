@@ -2,6 +2,18 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.10.14",
+      "tag": "c2pa-wc_v0.10.14",
+      "date": "Wed, 22 Mar 2023 18:52:56 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"c2pa\" to `0.14.4`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.10.13",
       "tag": "c2pa-wc_v0.10.13",
       "date": "Tue, 14 Mar 2023 23:02:41 GMT",

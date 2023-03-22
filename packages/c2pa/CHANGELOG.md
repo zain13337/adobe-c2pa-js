@@ -1,6 +1,15 @@
 # Change Log - c2pa
 
-This log was last generated on Tue, 14 Mar 2023 23:02:41 GMT and should not be manually modified.
+This log was last generated on Wed, 22 Mar 2023 18:52:56 GMT and should not be manually modified.
+
+## 0.14.4
+Wed, 22 Mar 2023 18:52:56 GMT
+
+### Patches
+
+- Fixes error on `read` that would get triggered if an ingredient doesn't have a thumbnail
+- Allows assets that have invalid JUMBF box to have their sources passed through to the client during a `read` request instead instead of throwing an error so that the asset can still be displayed
+- Fixes TypeScript errors by updating our `target` to `es2017` to use some newer (but widely supported) JavaScript APIs, as well as removing `process.env` in favor of a constant for the integrity logic
 
 ## 0.14.3
 Tue, 14 Mar 2023 23:02:41 GMT
