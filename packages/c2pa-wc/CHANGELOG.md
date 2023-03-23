@@ -1,6 +1,13 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Wed, 22 Mar 2023 18:52:56 GMT and should not be manually modified.
+This log was last generated on Thu, 23 Mar 2023 18:22:59 GMT and should not be manually modified.
+
+## 0.10.15
+Thu, 23 Mar 2023 18:22:59 GMT
+
+### Patches
+
+- Add error state to ManifestSummary and MinimumViableProvenance components
 
 ## 0.10.14
 Wed, 22 Mar 2023 18:52:56 GMT
