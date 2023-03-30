@@ -1,6 +1,14 @@
 # Change Log - c2pa
 
-This log was last generated on Wed, 22 Mar 2023 18:52:56 GMT and should not be manually modified.
+This log was last generated on Thu, 30 Mar 2023 16:18:58 GMT and should not be manually modified.
+
+## 0.14.5
+Thu, 30 Mar 2023 16:18:58 GMT
+
+### Patches
+
+- Added new c2pa icons and mapped them to their ids
+- Fix `selectEditsAndActivity` issues with embedded translations introduced in [C2PA 1.2 spec](https://c2pa.org/specifications/specifications/1.2/specs/C2PA_Specification.html#_metadata_about_assertions)
 
 ## 0.14.4
 Wed, 22 Mar 2023 18:52:56 GMT

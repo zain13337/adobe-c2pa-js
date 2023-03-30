@@ -2,6 +2,21 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.14.5",
+      "tag": "c2pa_v0.14.5",
+      "date": "Thu, 30 Mar 2023 16:18:58 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Added new c2pa icons and mapped them to their ids"
+          },
+          {
+            "comment": "Fix `selectEditsAndActivity` issues with embedded translations introduced in [C2PA 1.2 spec](https://c2pa.org/specifications/specifications/1.2/specs/C2PA_Specification.html#_metadata_about_assertions)"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.14.4",
       "tag": "c2pa_v0.14.4",
       "date": "Wed, 22 Mar 2023 18:52:56 GMT",
