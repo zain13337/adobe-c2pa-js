@@ -1,6 +1,14 @@
 # Change Log - c2pa
 
-This log was last generated on Thu, 30 Mar 2023 16:18:58 GMT and should not be manually modified.
+This log was last generated on Fri, 31 Mar 2023 18:34:40 GMT and should not be manually modified.
+
+## 0.15.0
+Fri, 31 Mar 2023 18:34:40 GMT
+
+### Minor changes
+
+- Add generativeInfo to createL2ManifestStore
+- Add selectFormattedGenerator and include in createL2ManifestStore
 
 ## 0.14.5
 Thu, 30 Mar 2023 16:18:58 GMT

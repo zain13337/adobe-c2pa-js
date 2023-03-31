@@ -2,6 +2,21 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.15.0",
+      "tag": "c2pa_v0.15.0",
+      "date": "Fri, 31 Mar 2023 18:34:40 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add generativeInfo to createL2ManifestStore"
+          },
+          {
+            "comment": "Add selectFormattedGenerator and include in createL2ManifestStore"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.14.5",
       "tag": "c2pa_v0.14.5",
       "date": "Thu, 30 Mar 2023 16:18:58 GMT",
