@@ -7,7 +7,7 @@
  * it.
  */
 
-import { LitElement, html, css, nothing, TemplateResult } from 'lit';
+import { css, html, LitElement, nothing, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { defaultStyles } from '../../styles';
 
@@ -47,7 +47,10 @@ export class Icon extends LitElement {
       pattern: /adobe\sstock/i,
       icon: html`<cai-icon-adobe-stock></cai-icon-adobe-stock>`,
     },
-    { pattern: /adobe/i, icon: html`<cai-icon-adobe></cai-icon-adobe>` },
+    {
+      pattern: /adobe/i,
+      icon: html`<cai-icon-adobe></cai-icon-adobe>`,
+    },
     {
       pattern: /behance\.net/i,
       icon: html`<cai-icon-behance></cai-icon-behance>`,
@@ -60,7 +63,10 @@ export class Icon extends LitElement {
       pattern: /instagram\.com/i,
       icon: html`<cai-icon-instagram></cai-icon-instagram>`,
     },
-    { pattern: /truepic/i, icon: html`<cai-icon-truepic></cai-icon-truepic>` },
+    {
+      pattern: /truepic/i,
+      icon: html`<cai-icon-truepic></cai-icon-truepic>`,
+    },
     {
       pattern: /twitter\.com/i,
       icon: html`<cai-icon-twitter></cai-icon-twitter>`,
