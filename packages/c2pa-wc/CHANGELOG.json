@@ -2,6 +2,18 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.11.1",
+      "tag": "c2pa-wc_v0.11.1",
+      "date": "Tue, 11 Apr 2023 20:32:47 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Adding an aria-hidden tag around svgs since logos are decorative and should be left out of the AT reading order"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.11.0",
       "tag": "c2pa-wc_v0.11.0",
       "date": "Fri, 31 Mar 2023 18:34:40 GMT",

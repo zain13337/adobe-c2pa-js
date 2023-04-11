@@ -1,6 +1,13 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Fri, 31 Mar 2023 18:34:40 GMT and should not be manually modified.
+This log was last generated on Tue, 11 Apr 2023 20:32:47 GMT and should not be manually modified.
+
+## 0.11.1
+Tue, 11 Apr 2023 20:32:47 GMT
+
+### Patches
+
+- Adding an aria-hidden tag around svgs since logos are decorative and should be left out of the AT reading order
 
 ## 0.11.0
 Fri, 31 Mar 2023 18:34:40 GMT
