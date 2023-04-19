@@ -2,6 +2,18 @@
   "name": "c2pa-wc",
   "entries": [
     {
+      "version": "0.11.2",
+      "tag": "c2pa-wc_v0.11.2",
+      "date": "Wed, 19 Apr 2023 15:34:21 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Added the Lightroom icon to the list of available icons"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.11.1",
       "tag": "c2pa-wc_v0.11.1",
       "date": "Tue, 11 Apr 2023 20:32:47 GMT",

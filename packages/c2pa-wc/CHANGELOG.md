@@ -1,6 +1,13 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Tue, 11 Apr 2023 20:32:47 GMT and should not be manually modified.
+This log was last generated on Wed, 19 Apr 2023 15:34:21 GMT and should not be manually modified.
+
+## 0.11.2
+Wed, 19 Apr 2023 15:34:21 GMT
+
+### Patches
+
+- Added the Lightroom icon to the list of available icons
 
 ## 0.11.1
 Tue, 11 Apr 2023 20:32:47 GMT
