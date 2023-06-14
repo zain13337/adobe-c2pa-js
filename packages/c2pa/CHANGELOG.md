@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Wed, 14 Jun 2023 15:36:00 GMT and should not be manually modified.
+This log was last generated on Wed, 14 Jun 2023 16:47:50 GMT and should not be manually modified.
+
+## 0.16.1
+Wed, 14 Jun 2023 16:47:50 GMT
+
+### Patches
+
+- Fixed TypeScript for ExtendedAssertions functionality
 
 ## 0.16.0
 Wed, 14 Jun 2023 15:36:00 GMT
