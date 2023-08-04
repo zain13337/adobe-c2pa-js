@@ -2,6 +2,18 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.17.0",
+      "tag": "c2pa_v0.17.0",
+      "date": "Fri, 04 Aug 2023 15:51:55 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Adds functionality to handle v1 assertions (trained and composite media) while still being compatible with legacy assertions"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.16.2",
       "tag": "c2pa_v0.16.2",
       "date": "Wed, 19 Jul 2023 20:42:52 GMT",

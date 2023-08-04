@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Wed, 19 Jul 2023 20:42:52 GMT and should not be manually modified.
+This log was last generated on Fri, 04 Aug 2023 15:51:55 GMT and should not be manually modified.
+
+## 0.17.0
+Fri, 04 Aug 2023 15:51:55 GMT
+
+### Minor changes
+
+- Adds functionality to handle v1 assertions (trained and composite media) while still being compatible with legacy assertions
 
 ## 0.16.2
 Wed, 19 Jul 2023 20:42:52 GMT
