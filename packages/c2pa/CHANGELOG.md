@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Fri, 04 Aug 2023 15:51:55 GMT and should not be manually modified.
+This log was last generated on Fri, 04 Aug 2023 17:01:16 GMT and should not be manually modified.
+
+## 0.17.1
+Fri, 04 Aug 2023 17:01:16 GMT
+
+### Patches
+
+- exporting the generativeInfo type
 
 ## 0.17.0
 Fri, 04 Aug 2023 15:51:55 GMT
