@@ -2,6 +2,23 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.17.2",
+      "tag": "c2pa_v0.17.2",
+      "date": "Thu, 14 Sep 2023 11:56:56 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add support for serde arbitrary values, additional file types, fix generative parsing bug"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.10.2`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.17.1",
       "tag": "c2pa_v0.17.1",
       "date": "Fri, 04 Aug 2023 17:01:16 GMT",

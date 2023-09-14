@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Fri, 04 Aug 2023 17:01:16 GMT and should not be manually modified.
+This log was last generated on Thu, 14 Sep 2023 11:56:56 GMT and should not be manually modified.
+
+## 0.17.2
+Thu, 14 Sep 2023 11:56:56 GMT
+
+### Patches
+
+- Add support for serde arbitrary values, additional file types, fix generative parsing bug
 
 ## 0.17.1
 Fri, 04 Aug 2023 17:01:16 GMT
