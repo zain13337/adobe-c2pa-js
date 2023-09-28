@@ -1,6 +1,11 @@
 # Change Log - @contentauth/react
 
-This log was last generated on Tue, 26 Sep 2023 18:33:54 GMT and should not be manually modified.
+This log was last generated on Thu, 28 Sep 2023 18:46:57 GMT and should not be manually modified.
+
+## 0.2.35
+Thu, 28 Sep 2023 18:46:57 GMT
+
+_Version update only_
 
 ## 0.2.34
 Tue, 26 Sep 2023 18:33:54 GMT

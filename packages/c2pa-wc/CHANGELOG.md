@@ -1,6 +1,13 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Tue, 26 Sep 2023 18:33:54 GMT and should not be manually modified.
+This log was last generated on Thu, 28 Sep 2023 18:46:57 GMT and should not be manually modified.
+
+## 0.11.10
+Thu, 28 Sep 2023 18:46:57 GMT
+
+### Patches
+
+- Remove badge from minimum viable provenance thumbnail
 
 ## 0.11.9
 Tue, 26 Sep 2023 18:33:54 GMT
