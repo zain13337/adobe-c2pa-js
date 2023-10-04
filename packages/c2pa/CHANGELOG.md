@@ -1,6 +1,14 @@
 # Change Log - c2pa
 
-This log was last generated on Wed, 04 Oct 2023 21:32:12 GMT and should not be manually modified.
+This log was last generated on Wed, 04 Oct 2023 22:10:09 GMT and should not be manually modified.
+
+## 0.17.5
+Wed, 04 Oct 2023 22:10:09 GMT
+
+### Patches
+
+- Add MIME types for WAV and M4A
+- Add MIME type for MP3
 
 ## 0.17.4
 Wed, 04 Oct 2023 21:32:12 GMT
