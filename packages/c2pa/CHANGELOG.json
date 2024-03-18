@@ -2,6 +2,23 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.18.0",
+      "tag": "c2pa_v0.18.0",
+      "date": "Mon, 18 Mar 2024 21:08:16 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add settings and trust list support"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.11.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.17.9",
       "tag": "c2pa_v0.17.9",
       "date": "Thu, 07 Mar 2024 22:56:51 GMT",

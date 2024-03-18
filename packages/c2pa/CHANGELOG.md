@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Thu, 07 Mar 2024 22:56:51 GMT and should not be manually modified.
+This log was last generated on Mon, 18 Mar 2024 21:08:16 GMT and should not be manually modified.
+
+## 0.18.0
+Mon, 18 Mar 2024 21:08:16 GMT
+
+### Minor changes
+
+- Add settings and trust list support
 
 ## 0.17.9
 Thu, 07 Mar 2024 22:56:51 GMT
