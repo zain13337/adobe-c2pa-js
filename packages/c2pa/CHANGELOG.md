@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Mon, 18 Mar 2024 21:08:16 GMT and should not be manually modified.
+This log was last generated on Tue, 19 Mar 2024 18:41:20 GMT and should not be manually modified.
+
+## 0.19.0
+Tue, 19 Mar 2024 18:41:20 GMT
+
+### Minor changes
+
+- web3 and gen AI support in createL2ManifestStore
 
 ## 0.18.0
 Mon, 18 Mar 2024 21:08:16 GMT
