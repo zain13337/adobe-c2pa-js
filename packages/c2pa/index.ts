@@ -27,12 +27,11 @@ export {
   DisposableL2ManifestStore,
   ErrorStatus,
   L2ClaimGenerator,
-  L2EditsAndActivity,
-  L2Ingredient,
   L2ManifestStore,
   L2Producer,
   L2Signature,
   L2SocialAccount,
+  L2Web3,
   createL2ManifestStore,
 } from './src/createL2ManifestStore';
 export { Ingredient } from './src/ingredient';
@@ -52,6 +51,8 @@ export {
 export {
   GenerativeInfo,
   selectGenerativeInfo,
+  selectGenerativeSoftwareAgents,
+  selectGenerativeType,
 } from './src/selectors/selectGenerativeInfo';
 export { selectProducer } from './src/selectors/selectProducer';
 export { selectSocialAccounts } from './src/selectors/selectSocialAccounts';
