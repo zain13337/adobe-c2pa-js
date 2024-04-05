@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Fri, 05 Apr 2024 16:07:54 GMT and should not be manually modified.
+This log was last generated on Fri, 05 Apr 2024 18:04:37 GMT and should not be manually modified.
+
+## 0.19.3
+Fri, 05 Apr 2024 18:04:37 GMT
+
+### Patches
+
+- Add support for c2pa.actions.v2 in selectEditsAndActivity
 
 ## 0.19.2
 Fri, 05 Apr 2024 16:07:54 GMT
