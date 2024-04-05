@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Fri, 05 Apr 2024 18:04:37 GMT and should not be manually modified.
+This log was last generated on Fri, 05 Apr 2024 19:04:44 GMT and should not be manually modified.
+
+## 0.19.4
+Fri, 05 Apr 2024 19:04:44 GMT
+
+### Patches
+
+- Add icons for actions.v2
 
 ## 0.19.3
 Fri, 05 Apr 2024 18:04:37 GMT
