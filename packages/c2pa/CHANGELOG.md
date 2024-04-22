@@ -1,6 +1,13 @@
 # Change Log - c2pa
 
-This log was last generated on Fri, 12 Apr 2024 19:34:30 GMT and should not be manually modified.
+This log was last generated on Mon, 22 Apr 2024 15:46:27 GMT and should not be manually modified.
+
+## 0.21.0
+Mon, 22 Apr 2024 15:46:27 GMT
+
+### Minor changes
+
+- Add i18n registration API for selectEditsAndActivity
 
 ## 0.20.0
 Fri, 12 Apr 2024 19:34:30 GMT
