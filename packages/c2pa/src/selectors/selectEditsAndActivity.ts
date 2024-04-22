@@ -48,11 +48,6 @@ declare module '../assertions' {
 const DEFAULT_LOCALE = 'en-US';
 const UNCATEGORIZED_ID = 'UNCATEGORIZED';
 
-interface ActionDictionaryItem {
-  label: string;
-  description: string;
-}
-
 export interface TranslatedDictionaryCategory {
   id: string;
   icon: string | null;
@@ -101,16 +96,55 @@ export interface EditCategory {
  * @param locale - BCP-47 locale code (e.g. `en-US`, `fr-FR`) to request localized strings, if available
  */
 function getPackagedTranslationsForLocale(locale: string = DEFAULT_LOCALE) {
-  const defaultSet = (bcp47Mapping[DEFAULT_LOCALE]?.selectors
-    ?.editsAndActivity ?? {}) as Record<string, ActionDictionaryItem>;
-  const requestedSet = (bcp47Mapping[locale]?.selectors?.editsAndActivity ??
-    {}) as Record<string, ActionDictionaryItem>;
-
+  const defaultSet = parseLocaleFile(bcp47Mapping[DEFAULT_LOCALE]);
+  const requestedSet = parseLocaleFile(bcp47Mapping[locale]);
   if (locale === DEFAULT_LOCALE) {
     return defaultSet;
   }
 
   return merge({}, defaultSet, requestedSet);
+}
+
+interface ValueWithFallback {
+  value: string;
+  isFallback: boolean;
+}
+
+function parseLocaleFile(
+  data: Record<string, string> | undefined,
+  markAsFallback = false,
+) {
+  if (!data) {
+    return {};
+  }
+
+  const map: Record<string, Record<string, ValueWithFallback>> = {};
+
+  Object.entries(data).forEach(([key, value]) => {
+    const stringParts = key.split('.');
+    // Discard "selectors.editsAndActivity"
+    const actionNameAndStringType = stringParts.slice(2);
+    // Combine "c2pa" with the action name (e.g. "c2pa.placed")
+    const actionName = actionNameAndStringType.slice(0, 2).join('.');
+    // Get the type of string (e.g. "label", "description")
+    const [type] = actionNameAndStringType.slice(-1);
+
+    if (!map[actionName]) {
+      map[actionName] = {
+        [type]: {
+          value,
+          isFallback: markAsFallback,
+        },
+      };
+    } else {
+      map[actionName][type] = {
+        value,
+        isFallback: markAsFallback,
+      };
+    }
+  });
+
+  return map;
 }
 
 /**
@@ -187,7 +221,7 @@ interface AdobeCompatAction extends ActionV1 {
   };
 }
 
-type OverrideLocalizationMap = Record<string, any>;
+type OverrideLocalizationMap = Record<string, ValueWithFallback>;
 type Override = Record<string, OverrideLocalizationMap>;
 
 interface OverrideActionMap {
@@ -211,15 +245,21 @@ export function getC2paCategorizedActions(
   const translations = getPackagedTranslationsForLocale(locale);
   const overrides = (actionsAssertion.data.metadata?.localizations ??
     []) as Override[];
-
   const overrideObj: OverrideActionMap = { actions: [] };
   // The spec has an array of objects, and each object can have multiple entries
   // of path keys to overrides, which is why we have to have a nested each.
   each(overrides, (override) => {
     each(override, (translationMap, path) => {
-      const val = translationMap[locale] ?? translationMap[DEFAULT_LOCALE];
-      if (val) {
-        set(overrideObj, path, val);
+      if (translationMap[locale]) {
+        set(overrideObj, path, {
+          value: translationMap[locale],
+          isFallback: false,
+        });
+      } else if (translationMap[DEFAULT_LOCALE]) {
+        set(overrideObj, path, {
+          value: translationMap[DEFAULT_LOCALE],
+          isFallback: true,
+        });
       }
     });
   });
@@ -227,6 +267,7 @@ export function getC2paCategorizedActions(
   const translatedActions = actions.map((action, idx) => {
     const actionOverrides = overrideObj.actions[idx] ?? {};
     const actionTranslations = translations[action.action];
+
     const iconId: string = action.action;
     return {
       // Include original ID
@@ -236,12 +277,16 @@ export function getC2paCategorizedActions(
         action.parameters?.['com.adobe.icon'] ??
         icons[iconId as keyof typeof icons],
       // Use override if available, if not, then fall back to translation
-      label: actionOverrides.action ?? actionTranslations.label,
+      label: selectPriorityValueWithFallback(
+        actionOverrides?.action,
+        actionTranslations?.label,
+      ),
       // Use override if available, if not, then fall back to translation
       description:
-        actionOverrides?.description ??
-        actionTranslations?.description ??
-        action.parameters.description,
+        selectPriorityValueWithFallback(
+          actionOverrides?.description,
+          actionTranslations?.description,
+        ) ?? action.parameters.description,
     } as TranslatedDictionaryCategory;
   });
 
@@ -281,4 +326,33 @@ function translateActionName(
     };
   }
   return null;
+}
+
+export function registerLocaleForEditsAndActivities(
+  bcp47: string,
+  data: Record<string, string>,
+) {
+  bcp47Mapping[bcp47] = data;
+}
+
+/**
+ * Implements the fallback logic for selecting between two values that may or may not be fallbacks -
+ * e.g., a string for a requested locale that was not found in the map.
+ *
+ * This function will prioritize:
+ * 1. value1 if it is defined and not a fallback
+ * 2. value2 if it is defined and not a fallback
+ * 3. value1 if it is defined
+ * 4. value2 if it is defined
+ */
+function selectPriorityValueWithFallback(
+  value1: ValueWithFallback,
+  value2: ValueWithFallback,
+): string | null {
+  return [
+    !value1?.isFallback ? value1?.value : null,
+    !value2?.isFallback ? value2?.value : null,
+    value1?.value ?? null,
+    value2?.value ?? null,
+  ].filter((val) => !!val)[0];
 }
